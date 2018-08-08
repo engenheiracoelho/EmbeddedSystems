@@ -1,6 +1,6 @@
 # KEY Button
 
-This experiment is based on contents of [http://www.lisha.ufsc.br/teaching/quark/ this UFSC project].
+This experiment is based on contents of [this UFSC project](http://www.lisha.ufsc.br/teaching/quark/).
 
 Here we are going to build an experiment with an led and a push button to learn and start using the GPIO. GPIO is called General Purpose Input/Output, and it is basically a group of pins responsable of the communication of input and output digital signals in one board.
 So the exercise proposed is to turn on and off a led when the push button is pressed or not, respectively.
@@ -9,7 +9,7 @@ So the exercise proposed is to turn on and off a led when the push button is pre
 
 Solution:
 
- 	```
+```
 #define in1 2
 #define in2 3
 #define out1 8
@@ -26,7 +26,7 @@ void loop(){
   digitalWrite(out1, digitalRead(in1));    
   digitalWrite(out2, digitalRead(in2));
 }
- 	```
+```
 
 This code has a comparison statement to see if the push button is pressed (1) or not (0). If yes, the led will turn on and if not (else), the led will stay turned off.
 
