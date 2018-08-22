@@ -41,10 +41,6 @@ This code has a comparison statement to see if the push button is pressed (1) or
 * 1 Protoboard
 * 8 copper wires (tinned) or jumpers
 
-# Solutions
-* [C - AVR](https://drive.google.com/file/d/0B_chZ-d1CkpCX1ZUU1VzWUFzbkU/view).
-* [Arduino UNO](https://drive.google.com/file/d/0B_chZ-d1CkpCdE5EdkRuc1pwNEU/view).
-
 # Tools
 * AVR GCC and tools
 * Arduino IDE
