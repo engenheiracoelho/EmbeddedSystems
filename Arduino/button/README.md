@@ -31,7 +31,7 @@ void loop(){
 This code has a comparison statement to see if the push button is pressed (1) or not (0). If yes, the led will turn on and if not (else), the led will stay turned off.
 
 # Schematic
-![Assembly](/Image/Led_key.png)
+![Assembly](https://github.com/leticiacoelho/EmbeddedSystems/blob/master/Arduino/Image/Led_key.png)
 
 # Part List
 * 2 LED

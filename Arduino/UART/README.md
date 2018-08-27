@@ -12,15 +12,15 @@ This experiment is based on contents of [this UFSC project](https://wiki.sj.ifsc
 
 # Code
 
-1. [UART code](https://github.com/leticiacoelho/EmbeddedSystems/blob/master/UART/UART/UART.ino).
-2. [SLAVE code](https://github.com/leticiacoelho/EmbeddedSystems/blob/master/UART/UART_slave/UART_slave.ino). 
-3. [MASTER code](https://github.com/leticiacoelho/EmbeddedSystems/blob/master/UART/UART_master/UART_master.ino).
+1. [UART code](https://github.com/leticiacoelho/EmbeddedSystems/blob/master/Arduino/UART/UART/UART.ino).
+2. [SLAVE code](https://github.com/leticiacoelho/EmbeddedSystems/blob/master/Arduino/UART/UART_slave/UART_slave.ino).
+3. [MASTER code](https://github.com/leticiacoelho/EmbeddedSystems/blob/master/Arduino/UART/UART_master/UART_master.ino).
 
-# Schematic 
+# Schematic
 1. Experiment 1 : Use just the Arduino Board.
 
-2. Experiment 2 : 
-![Assembly](/Image/Uart_AVR.png)
+2. Experiment 2 :
+![Assembly](https://github.com/leticiacoelho/EmbeddedSystems/blob/master/Arduino/Image/Uart_AVR.png)
 
 # Part List
 
@@ -29,11 +29,6 @@ This experiment is based on contents of [this UFSC project](https://wiki.sj.ifsc
 * 1 220 ohm resistor
 * 1 Protoboard
 * Copper wires (tinned) or jumpers
-
-# Solutions
-
-* [C - AVR](https://drive.google.com/file/d/0B_chZ-d1CkpCX1ZUU1VzWUFzbkU/view).
-* [Arduino UNO](https://drive.google.com/file/d/0B_chZ-d1CkpCdE5EdkRuc1pwNEU/view).
 
 # Tools
 
