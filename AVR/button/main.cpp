@@ -1,5 +1,3 @@
-#define __AVR_ATmega2560__
-
 #include <avr/io.h>
 
 bool read(uint8_t port, uint8_t pin){
