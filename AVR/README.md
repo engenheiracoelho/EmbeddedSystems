@@ -45,6 +45,16 @@ File > new > C++ Project > AVR Cross Target Application > Empty Project > AVR-GC
 >> OK
 ```
 
+# Makefile
+
+You can use the file [Makefile](https://github.com/leticiacoelho/EmbeddedSystems/tree/master/AVR/Makefile) made by (Bruno Pinho)[https://github.com/bruno-antonio-pinho].
+You just need to change the ```PRG``` variable value for the file's name to the file that will be compiled (without .cpp).
+
+## Important commands
+
+* Generate a new binary file. ```make```
+* Save information on board. ```make flash```
+
 # Important Links
 
-[Arduino schematic](https://www.arduino.cc/en/uploads/Main/arduino-mega2560-schematic.pdf)
+* [Arduino schematic](https://www.arduino.cc/en/uploads/Main/arduino-mega2560-schematic.pdf)
