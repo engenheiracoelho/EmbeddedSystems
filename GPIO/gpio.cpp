@@ -4,7 +4,7 @@
 
 
 void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate output or input.
-
+  GPIO _id = id;
   switch (id){
     case 0:
       _pin = DDE0;
@@ -23,7 +23,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
     break;
 
     case 2:
-        _pin = DDE2;
+        _pin = DDE4;
       if(direction == 'INPUT')
         DDRE &= ~(1 << _pin); //INPUT
       else
@@ -31,7 +31,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
     break;
 
     case 3:
-        _pin = DDE3;
+        _pin = DDE5;
       if(direction == 'INPUT')
         DDRE &= ~(1 << _pin); //INPUT
       else
@@ -39,7 +39,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
     break;
 
     case 4:
-        _pin = DDE4;
+        _pin = DDG5;
       if(direction == 'INPUT')
         DDRG &= ~(1 << _pin); ///INPUT
       else
@@ -47,7 +47,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
     break;
 
    case 5:
-      _pin = DDE5;
+      _pin = DDE3;
       if(direction == 'INPUT')
         DDRE &= ~(1 << _pin); //INPUT
       else
@@ -55,7 +55,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
    break;
 
    case 6:
-      _pin = DDE6;
+      _pin = DDH3;
      if(direction == 'INPUT')
        DDRH &= ~(1 << _pin); //INPUT
      else
@@ -63,7 +63,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
    break;
 
    case 7:
-      _pin = DDE7;
+      _pin = DDH4;
      if(direction == 'INPUT')
        DDRH &= ~(1 << _pin); ///INPUT
      else
@@ -71,7 +71,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
    break;
 
    case 8:
-      _pin = DDE8;
+      _pin = DDH5;
      if(direction == 'INPUT')
        DDRH &= ~(1 << _pin); //INPUT
      else
@@ -79,7 +79,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
    break;
 
    case 9:
-      _pin = DDE9;
+      _pin = DDH6;
      if(direction == 'INPUT')
         DDRH &= ~(1 << _pin); ///INPUT
      else
@@ -87,7 +87,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
    break;
 
    case 10:
-      _pin = DDE10;
+      _pin = DDB4;
       if(direction == 'INPUT')
         DDRB &= ~(1 << _pin); //INPUT
       else
@@ -95,7 +95,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
    break;
 
    case 11:
-      _pin = DDE11;
+      _pin = DDB5;
       if(direction == 'INPUT')
         DDRB &= ~(1 << _pin); //INPUT
       else
@@ -103,7 +103,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
    break;
 
    case 12:
-      _pin = DDE12;
+      _pin = DDB6;
       if(direction == 'INPUT')
         DDRB &= ~(1 << _pin); ///INPUT
       else
@@ -111,7 +111,7 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
    break;
 
    case 13:
-      _pin = DDE13;
+      _pin = DDB7;
       if(direction == 'INPUT')
         DDRB &= ~(1 << _pin); //INPUT
       else
@@ -122,104 +122,46 @@ void GPIO::GPIO(int id, PortDirection_t direction){ // The direction indicate ou
 bool GPIO::GET(){}
 
 bool GPIO::SET(bool value){
-    switch (value){
-      case 0:
-        if(value)
-          DDRE &= ~(1 << _pin); //INPUT
-        else
-          DDRE |= (1 << _pin);  //OUTPUT
-        break;
+    int var;
 
+    if(_id == 0 || _id == 1 || _id == 2 || _id == 3 || _id == 5)
+      var = 1;
+    if(_id == 5)
+      var = 2;
+    if(_id == 6 || _id == 7 || _id == 8 || _id == 9)
+      var = 3;
+    if(_id == 10 || _id == 11 || _id == 12 || _id == 13)
+      var = 4;
+
+    switch (var){
       case 1:
         if(value)
-          DDRE &= ~(1 << _pin); ///INPUT
+          PORTE &= ~(1 << _pin); // ON - 1
         else
-      	  DDRE |= (1 << _pin);  //OUTPUT
+          PORTE |= (1 << _pin);  // OFF - 0
       break;
 
       case 2:
         if(value)
-          DDRE &= ~(1 << _pin); //INPUT
+          PORTG &= ~(1 << _pin); // ON - 1
         else
-      		DDRE |= (1 << _pin);  //OUTPUT
+          PORTG |= (1 << _pin);  // OFF - 0
       break;
 
       case 3:
         if(value)
-          DDRE &= ~(1 << _pin); //INPUT
+          PORTH &= ~(1 << _pin); // ON - 1
         else
-          DDRE |= (1 << _pin);  //OUTPUT
+      	  PORTH |= (1 << _pin);  // OFF - 0
       break;
 
       case 4:
-        if(direction == 'INPUT')
-          DDRG &= ~(1 << _pin); ///INPUT
+        if(value)
+          PORTB &= ~(1 << _pin); // ON - 1
         else
-          DDRG |= (1 << _pin);  //OUTPUT
+          PORTB |= (1 << _pin);  // OFF - 0
       break;
-
-     case 5
-        if(direction == 'INPUT')
-          DDRE &= ~(1 << _pin); //INPUT
-        else
-      	 DDRE |= (1 << _pin);  //OUTPUT
-     break;
-
-     case 6
-       if(direction == 'INPUT')
-         DDRH &= ~(1 << _pin); //INPUT
-       else
-         DDRH |= (1 << _pin);  //OUTPUT
-     break;
-
-     case 7
-       if(direction == 'INPUT')
-         DDRH &= ~(1 << _pin); ///INPUT
-       else
-         DDRH |= (1 << _pin);  //OUTPUT
-     break;
-
-     case 8
-       if(direction == 'INPUT')
-         DDRH &= ~(1 << _pin); //INPUT
-       else
-         DDRH |= (1 << _pin);  //OUTPUT
-     break;
-
-     case 9
-       if(direction == 'INPUT')
-          DDRH &= ~(1 << _pin); ///INPUT
-       else
-          DDRH |= (1 << _pin);  //OUTPUT
-     break;
-
-     case 10:
-        if(direction == 'INPUT')
-          DDRB &= ~(1 << _pin); //INPUT
-        else
-          DDRB |= (1 << _pin);  //OUTPUT
-     break;
-
-     case 11:
-        if(direction == 'INPUT')
-          DDRB &= ~(1 << _pin); //INPUT
-        else
-          DDRB |= (1 << _pin);  //OUTPUT
-     break;
-
-     case 12:
-        if(direction == 'INPUT')
-          DDRB &= ~(1 << _pin); ///INPUT
-        else
-          DDRB |= (1 << _pin);  //OUTPUT
-     break;
-
-     case 13:
-        if(direction == 'INPUT')
-          DDRB &= ~(1 << _pin); //INPUT
-        else
-          DDRB |= (1 << _pin);  //OUTPUT
-     break;
+   }
 }
 
 bool GPIO::Clear(){}
