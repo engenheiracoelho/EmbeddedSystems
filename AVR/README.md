@@ -47,7 +47,7 @@ File > new > C++ Project > AVR Cross Target Application > Empty Project > AVR-GC
 
 # Makefile
 
-You can use the file [Makefile](https://github.com/leticiacoelho/EmbeddedSystems/tree/master/AVR/Makefile) made by (Bruno Pinho)[https://github.com/bruno-antonio-pinho].
+You can use the file [Makefile](https://github.com/leticiacoelho/EmbeddedSystems/tree/master/AVR/Makefile) made by [Bruno Pinho](https://github.com/bruno-antonio-pinho).
 You just need to change the ```PRG``` variable value for the file's name to the file that will be compiled (without .cpp).
 
 ## Important commands
