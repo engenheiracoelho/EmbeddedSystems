@@ -1,0 +1,1 @@
+Singleton.d: ../Singleton.cpp

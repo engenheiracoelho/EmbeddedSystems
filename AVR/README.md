@@ -27,7 +27,8 @@ File > new > C++ Project > AVR Cross Target Application > Empty Project > AVR-GC
 >> Properties
 > AVR > AVRDUDE > New ...
 >> Insert a new "Configuration name".
->> Insert "/dev/ttyACM0" on "Override default port (-P)". Note that this is your Port configuration, if isn't ok verify with "dmesg" command.
+>> Insert "/dev/ttyUSB0" on "Override default port (-P)". Note that this is your Port configuration, if isn't ok verify with "dmesg" command.
+>> Insert "-D" option on "Use this field to add any avrdude option not covered by the plugin.".
 >> Select "Atmel AVR ISP mkll" on "Programmer Hardware (-c)" option.
 >> OK
 ```
