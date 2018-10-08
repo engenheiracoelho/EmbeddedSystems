@@ -51,7 +51,7 @@ enum Ports_index {
 
 };
 
-const uint8_t id_to_port[70] = {
+const uint8_t PROGMEM id_to_port[] = {
 	PE_i	,
 	PE_i	,
 	PE_i	,
@@ -124,7 +124,7 @@ const uint8_t id_to_port[70] = {
 	PK_i
 };
 
-const uint8_t id_to_bit[70] = {
+const uint8_t PROGMEM id_to_bit[]  = {
 	_BV( 0 )	,
 	_BV( 1 )	,
     _BV( 4 )	,

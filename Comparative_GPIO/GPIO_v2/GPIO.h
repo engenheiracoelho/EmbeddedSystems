@@ -10,7 +10,6 @@
 
 #include "GPIO_Port.h"
 
-
 class GPIO {
 public:
 	enum PortDirection_t {
@@ -29,6 +28,5 @@ private:
 	uint8_t _bit;
 	GPIO_PORT::GPIO_Port * _port;
 };
-
 
 #endif /* GPIO_H_ */

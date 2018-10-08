@@ -9,6 +9,7 @@
 #define GPIO_PORT_H_
 
 #include <avr/io.h>
+#include <avr/pgmspace.h>
 
 namespace GPIO_PORT {
 
@@ -17,7 +18,7 @@ public:
     void dir(uint8_t p, bool io);
     void set(uint8_t p, bool val = 1);
     void clear(uint8_t p);
-    bool  get(uint8_t p);
+    bool get(uint8_t p);
     void toggle(uint8_t p);
 
 private:
