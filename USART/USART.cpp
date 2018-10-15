@@ -12,17 +12,16 @@ USART::USART(int Baud, Databits_t Data,Parity_t Parity, Stop_bit_t Stop){
 
 	uint16_t MYUBRR = (F_CPU/16/Baud-1);
 	UBRR0 = MYUBRR;
-	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
+	UCSR0B = (1<<RXEN0)||(1<<TXEN0)||(1<<RXCIE0);
 	UCSR0C = Data|Parity|Stop;
-    //Habilitar os flags de interrupção RXCIEn
 }
 
-void USART::USART_Transmit(unsigned char data){ //put(value);
+void USART::USART_Transmit(unsigned char data){
 	while(!(UCSR0A & (1<<UDRE0)));
 		UDR0 = data;
 }
 
-unsigned char USART::USART_Receive(void){ //value get();
+unsigned char USART::USART_Receive(void){
 	while (!(UCSR0A & (1<<RXC0)));
 		return UDR0;
 }
@@ -38,9 +37,9 @@ void USART::rx_isr(){
 ISR(USART_UDRE_vect)
 {USART::tx_isr();}
 void USART::tx_isr(){
-	UDR0 = _tx_buffer;
 	// Coloca a fifo aqui, deve ser colocado e dado.
-	UDRIE0 = 1;
+	UDR0 = _tx_buffer;
+	UCSR0B |= (1<<UDRIE0);
 }
 
 uint8_t USART::get(){
@@ -50,8 +49,7 @@ uint8_t USART::get(){
 
 void USART::put(uint8_t data){
 	_tx_buffer = data;
-	UDRIE0 = 0;
-
+	UCSR0B &= ~(1<<UDRIE0);
 }
 
 bool USART::has_data(){

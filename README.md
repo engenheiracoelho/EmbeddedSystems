@@ -15,3 +15,4 @@ Using Eclipse IDE with Arduino board, compile and execute the code.
 
 ## Important Links
 * [2017 Embedded Markets Study](https://m.eet.com/media/1246048/2017-embedded-market-study.pdf) - Aspencore
+* [Datasheet](http://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf) - Datasheet ATMega2560.
