@@ -6,51 +6,43 @@
  */
 
 #include "EXTINT.h"
+namespace EXT{
+	EXTINT * EXTINT::_ExtInt_singletons[8];
 
-EXTINT::EXTINT(Intx_t Id, ISC_t int_config, to_function pCallback){
-	_id = Id;
-	_pCallback = pCallback;
-	EIMSK = _id;
+    ISR(INT0_vect){EXTINT::_ExtInt_singletons[0]->callback();}
 
-	switch(Id){
-		case ONE:
+	ISR(INT1_vect){EXTINT::_ExtInt_singletons[1]->callback();}
 
-		break;
+	ISR(INT2_vect){EXTINT::_ExtInt_singletons[2]->callback();}
 
-		case TWO:
+	ISR(INT3_vect){EXTINT::_ExtInt_singletons[3]->callback();}
 
-		break;
+	ISR(INT4_vect){EXTINT::_ExtInt_singletons[4]->callback();}
 
-		case TREE:
+	ISR(INT5_vect){EXTINT::_ExtInt_singletons[5]->callback();}
 
-		break;
+	ISR(INT6_vect){EXTINT::_ExtInt_singletons[6]->callback();}
 
-		case FOUR:
+	ISR(INT7_vect){EXTINT::_ExtInt_singletons[7]->callback();}
 
-		break;
+	/* Execute external interrupt*/
+	EXTINT::EXTINT(Intx_t Id, ISC_t int_config, to_function pCallback){
+		_id = Id;
+		_pCallback = pCallback;
+		EIMSK &= ~(1<<_id); /* Disable */
+		_ExtInt_singletons[_id] = this;
 
-		case FIVE:
-
-		break;
-
-		case SIX:
-
-		break;
-
-		case SEVEN:
-
-		break;
+		int MSK =(_id%4)*2;
+		EICRA = (EICRA &~ (1<<MSK))|(int_config<<MSK); /* Config the EICRA register */
+		EICRB = (EICRB &~ (1<<MSK))|(int_config<<MSK); /* Config the EICRB register */
 	}
-}
 
-void EXTINT::enable(){
+	/* Enable interrupt */
+	void EXTINT::enable(){ EIMSK |= (1<<_id);}
 
-}
+	/* Disable interrupt */
+	void EXTINT::disable(){ EIMSK &= ~(1<<_id);}
 
-void EXTINT::disable(){
-
-}
-
-void EXTINT::into_handle(){
-
-}
+	/* Inform when an interrupt occurs */
+	void EXTINT::callback(){ (*_pCallback)();}
+};
